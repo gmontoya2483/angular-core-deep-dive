@@ -5,27 +5,31 @@
 
 </div>
 
-<div class="demo">
-  <div> Start Date: {{startDate | date: "MM/dd/yyyy" }}</div>
-</div>
+<button (click)="onCoursesEdited()">Edit Courses</button>
+<div class="courses" #container>
 
-<div *ngFor="let pair of course | keyvalue">
+<!--    <course-card #cardRef1-->
+<!--                 (courseSelected)="onCourseSelected($event)"-->
+<!--                 [course]="courses[0]" >-->
+<!--    </course-card>-->
 
-{{pair.key + ' : ' + pair.value}}
-</div>
+<!--  <course-card #cardRef2-->
+<!--               (courseSelected)="onCourseSelected($event)"-->
+<!--               [course]="courses[1]" >-->
+<!--  </course-card>-->
 
-<div class="courses">
 
-    <course-card *ngFor="let course of courses | slice:0:3; index as i; first as isFirst; last as isLast;
+
+
+  <course-card *ngFor="let course of courses | slice:0:3; index as i; first as isFirst; last as isLast;
                           even as isEven; odd as isOdd"
-                 [class.is-first]="isFirst"
-                 [class.is-last]="isLast"
-                 [class.is-even]="isEven"
-                 [class.is-odd]="isOdd"
-                 (courseSelected)="onCourseSelected($event)"
-                 [course]="course" [cardIndex]="i + 1">
-    </course-card>
-
+               [class.is-first]="isFirst"
+               [class.is-last]="isLast"
+               [class.is-even]="isEven"
+               [class.is-odd]="isOdd"
+               (courseSelected)="onCourseSelected($event)"
+               [course]="course" [cardIndex]="i + 1">
+  </course-card>
 </div>
 
 
