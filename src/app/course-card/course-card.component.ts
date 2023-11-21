@@ -8,7 +8,7 @@ import {
   EventEmitter,
   Input,
   Output,
-  QueryList,
+  QueryList, TemplateRef,
   ViewChild
 } from '@angular/core';
 import {Course} from '../model/course';
@@ -19,11 +19,13 @@ import {CourseImageComponent} from '../course-image/course-image.component';
   templateUrl: './course-card.component.html',
   styleUrls: ['./course-card.component.css']
 })
-export class CourseCardComponent implements AfterViewInit, AfterContentInit{
+export class CourseCardComponent implements AfterViewInit, AfterContentInit {
   @Input({
     required: true,
   })
   course: Course;
+  @Input()
+  noImageTpl: TemplateRef<any>;
 
   @Input()
   cardIndex: number;
